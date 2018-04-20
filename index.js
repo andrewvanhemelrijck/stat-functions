@@ -1,4 +1,4 @@
-import statjs from './statJs';
+import statJs from './statJs';
 
 const testDataSet = [ 3, 234, 23, 78, 356, 98, 67, 3, 34, 23, 94, 94, 90, 9 ];
 const medianTest = [ 3, 234, 23, 78, 356, 98, 67, 3, 34, 23, 94, 94, 90, 9, 9 ];
@@ -11,12 +11,12 @@ console.log('Data Set: ', testDataSet);
 // Sorted
 console.log('Sorted Data Set: ', [...testDataSet].sort((a, b) => a - b))
 
-console.log('Median: ', statjs.median(winsorTest));
-console.log('Mean: ', statjs.mean(testDataSet));
-console.log('Mode: ', statjs.mode(testDataSet));
-console.log('Percentile: ', statjs.percentile(testDataSet, .05));
-console.log('Range: ', statjs.range(testDataSet));
-console.log('Standard Deviation: ', statjs.stdDev(testDataSet));
-console.log('Median Absolute Deviation: ', statjs.mad(winsorTest));
-console.log('Winsorized: ', statjs.mavWinsorize(winsorTest));//testDataSet));
-console.log('Sorted Winsorized: ', [...statjs.mavWinsorize(winsorTest)].sort((a, b) => a - b));
+console.log('Median: ', statJs.median(winsorTest));
+console.log('Mean: ', statJs.mean(testDataSet));
+console.log('Mode: ', statJs.mode(testDataSet));
+console.log('Percentile: ', statJs.percentile(testDataSet, .05));
+console.log('Range: ', statJs.range(testDataSet));
+console.log('Standard Deviation: ', statJs.stdDev(testDataSet));
+console.log('Median Absolute Deviation: ', statJs.mad(winsorTest));
+console.log('Winsorized: ', statJs.mavWinsorize(winsorTest));//testDataSet));
+console.log('Sorted Winsorized: ', [...statJs.mavWinsorize(winsorTest)].sort((a, b) => a - b));

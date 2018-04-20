@@ -81,6 +81,7 @@ class StatJs {
     return this.median(absoluteDeviations);
   }
 
+  // Winsorize to +-4MAD
   mavWinsorize(dataSet) {
     const med = this.median(dataSet);
     const dSMad = this.mad(dataSet);
