@@ -24,6 +24,36 @@ class StatJs {
     return mean;
   }
 
+  mode(dataSet) {
+    let modes = [];
+    let count = [];
+    let i, number, maxIndex = 0;
+
+    for (i = 0; i < dataSet.length; i += 1) {
+      number = dataSet[i];
+      count[number] = (count[number] || 0) + 1;
+      if (count[number] > maxIndex) {
+        maxIndex = count[number];
+      }
+    }
+
+    for (i in count) {
+      if (count.hasOwnProperty(i)) {
+        if (count[i] === maxIndex) {
+          modes.push(Number(i));
+        }
+      }
+    }
+
+    return modes;
+  }
+
+  range(dataSet) {
+    const sortedDataSet = [...dataSet].sort((a, b) => a - b);
+
+    return [sortedDataSet[0], sortedDataSet[dataSet.length - 1]];
+  }
+
   stdDev (dataSet) {
     const avg = this.mean(dataSet);
     
@@ -63,71 +93,19 @@ class StatJs {
       return val;
     });
   }
+
+  percentile(dataSet, k) {
+    // sort dataSet ascending
+    const sortedDataSet = [...dataSet].sort((a, b) => a - b);
+    
+    // determine index and percentile value
+    let i = k * dataSet.length;
+    let percentile;
+
+    if (i % 1 !== 0) percentile = sortedDataSet[Math.ceil(i) - 1];
+    else percentile = (sortedDataSet[i - 1] + sortedDataSet[i]) / 2;
+    return percentile;
+  }
 }
 
 export default new StatJs
-
-// /**
-//   Percentile is in here somewhere
-// **/
-//   // sort dataSet by dataValue
-//   let winsorizedData = dataSet.sort((a, b) => Number(a[dataValue]) - Number(b[dataValue]))
-  
-//   // determine percentile tail values
-//   const kTails = (100 - percentile) / 2
-  
-//   // determine bottom and top percentile 'cut-off' value of dataset
-//   let bottomKVal
-//   const bottomK = (kTails / 100) * dataSet.length
-//   if (bottomK % 1 !== 0) bottomKVal = winsorizedData[Math.ceil(bottomK) - 1][dataValue]
-//   else bottomKVal = (winsorizedData[bottomK - 1][dataValue] + winsorizedData[bottomK][dataValue]) / 2
-//   log(bottomK)
-//   log(bottomKVal)
-  
-//   let topKVal
-//   const topK = ((100 - kTails) / 100) * dataSet.length
-//   if (topK % 1 !== 0) topKVal = winsorizedData[Math.ceil(topK) - 1][dataValue]
-//   else topKVal = (winsorizedData[topK - 1][dataValue] + winsorizedData[topK][dataValue]) / 2
-//   log(topK)
-//   log(topKVal)
-
-// /**
-//   Some more ideas
-// **/
-// function mode(numbers) {
-//   // as result can be bimodal or multi-modal,
-//   // the returned result is provided as an array
-//   // mode of [3, 5, 4, 4, 1, 1, 2, 3] = [1, 3, 4]
-//   var modes = [], count = [], i, number, maxIndex = 0;
-
-//   for (i = 0; i < numbers.length; i += 1) {
-//       number = numbers[i];
-//       count[number] = (count[number] || 0) + 1;
-//       if (count[number] > maxIndex) {
-//           maxIndex = count[number];
-//       }
-//   }
-
-//   for (i in count)
-//       if (count.hasOwnProperty(i)) {
-//           if (count[i] === maxIndex) {
-//               modes.push(Number(i));
-//           }
-//       }
-
-//   return modes;
-// }
- 
-// /**
-//  * The "range" of a list a numbers is the difference between the largest and
-//  * smallest values.
-//  *
-//  * For example, the "range" of [3, 5, 4, 4, 1, 1, 2, 3] is [1, 5].
-//  *
-//  * @param {Array} numbers An array of numbers.
-//  * @return {Array} The range of the specified numbers.
-//  */
-// function range(numbers) {
-//     numbers.sort();
-//     return [numbers[0], numbers[numbers.length - 1]];
-// }
