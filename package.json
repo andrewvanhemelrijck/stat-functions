@@ -4,7 +4,7 @@
   "description": "This README would normally document whatever steps are necessary to get your application up and running.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --verbose",
     "start": "nodemon ./bin/dev"
   },
   "repository": {
@@ -15,8 +15,10 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/pigeontoe/statjs#readme",
   "dependencies": {
+    "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.3"
   }
 }

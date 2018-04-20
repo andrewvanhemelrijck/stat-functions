@@ -1,14 +1,5 @@
 
 class StatJs {
-  mean(dataSet) {
-    const sum = dataSet.reduce(function(sum, value){
-      return sum + value;
-    }, 0);
-
-    const mean = sum / dataSet.length;
-    return mean;
-  }
-
   median(dataSet) {
     const setLen = dataSet.length;
     let median = 0;
@@ -24,7 +15,16 @@ class StatJs {
     return median;
   }
 
-  standardDeviation (dataSet) {
+  mean(dataSet) {
+    const sum = dataSet.reduce(function(sum, value){
+      return sum + value;
+    }, 0);
+
+    const mean = sum / dataSet.length;
+    return mean;
+  }
+
+  stdDev (dataSet) {
     const avg = this.mean(dataSet);
     
     const squareDiffs = dataSet.map(function(val) {
