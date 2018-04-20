@@ -1,0 +1,22 @@
+{
+  "name": "statjs",
+  "version": "0.0.1",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/pigeontoe/statjs.git"
+  },
+  "author": "Andrew Van Hemelrijck",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/pigeontoe/statjs#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.17.3"
+  }
+}
