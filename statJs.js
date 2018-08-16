@@ -109,4 +109,4 @@ class StatJs {
   }
 }
 
-export default new StatJs
+module.exports = new StatJs;
