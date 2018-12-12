@@ -1,8 +1,10 @@
 {
-  "name": "jStats",
+  "name": "jstats",
   "version": "1.0.0",
   "description": "📈 jStats is a collection of common statistics formulas.",
-  "keywords": ["statistics"],
+  "keywords": [
+    "statistics"
+  ],
   "homepage": "https://github.com/pigeontoe/jStats#readme",
   "main": "jStats.js",
   "repository": "github:pigeontoe/jStats.git",
