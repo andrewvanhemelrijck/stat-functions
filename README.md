@@ -1,18 +1,18 @@
-# 📈 jStats
+# 📈 stat-functions
 A collection of common statistics formulas.
 
 ---
 ## Install
 ```javascript
-npm i jStats
-yarn add jStats
+npm i stat-functions
+yarn add stat-functions
 ```
 
 ---
 ## Usage
-Import jStats methods into your project.
+Import stat-functions methods into your project.
 ```javascript
-import { sum, mean } from 'jStats';
+import { sum, mean } from 'stat-functions';
 ```
 
 Pass in dataset as an array of numbers (along with other arguments if applicable).

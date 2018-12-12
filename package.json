@@ -1,13 +1,13 @@
 {
-  "name": "jstats",
+  "name": "stat-functions",
   "version": "1.0.0",
-  "description": "📈 jStats is a collection of common statistics formulas.",
+  "description": "📈 stat-functions is a collection of common statistics formulas.",
   "keywords": [
     "statistics"
   ],
-  "homepage": "https://github.com/pigeontoe/jStats#readme",
-  "main": "jStats.js",
-  "repository": "github:pigeontoe/jStats.git",
+  "homepage": "https://github.com/pigeontoe/stat-functions#readme",
+  "main": "stat-functions.js",
+  "repository": "github:pigeontoe/stat-functions.git",
   "scripts": {
     "test": "jest --verbose",
     "start": "nodemon ./bin/dev"
