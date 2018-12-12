@@ -1,5 +1,9 @@
 
 class StatJs {
+  sum(dataSet) {
+    return dataSet.reduce((a, b) => a + b, 0);
+  }
+
   median(dataSet) {
     const setLen = dataSet.length;
     let median = 0;

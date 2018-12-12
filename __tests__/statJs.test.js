@@ -8,6 +8,10 @@ const percentileTest = [ 43, 54, 56, 61, 62, 66, 68, 69, 69, 70, 71, 72, 77, 78,
 const percentileTest2 = [ 3, 23, 78, 67, 3, 34, 23, 94, 90, 9 ];
 
 describe('statJs', () => {
+  test('.sum() should return correct sum', () => {
+    expect(statJs.sum(testDataSet)).toBe(1206);
+  });
+
   test('.median() should return correct median', () => {
     expect(statJs.median(testDataSet)).toBe(72.5);
     expect(statJs.median(medianTest)).toBe(67);
