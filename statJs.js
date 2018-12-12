@@ -84,14 +84,14 @@ const mad = (dataSet) => {
 }
 
 // Winsorize to +-4MAD
-const mavWinsorize = (dataSet) => {
+const madWinsorize = (dataSet, madF) => {
   const med = median(dataSet);
   const dSMad = mad(dataSet);
 
   return dataSet.map(val => {
-    if (Math.abs(val - med) > 4 * dSMad) {
-      if (val > med) return med + (4 * dSMad);
-      if (val < med) return med - (4 * dSMad);
+    if (Math.abs(val - med) > madF * dSMad) {
+      if (val > med) return med + (madF * dSMad);
+      if (val < med) return med - (madF * dSMad);
     }
     return val;
   });
@@ -118,6 +118,6 @@ module.exports = {
   range,
   stdDev,
   mad,
-  mavWinsorize,
+  madWinsorize,
   percentile,
 };

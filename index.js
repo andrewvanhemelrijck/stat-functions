@@ -6,7 +6,7 @@ const {
   range,
   stdDev,
   mad,
-  mavWinsorize,
+  madWinsorize,
 } = require('./statJs');
 
 const testDataSet = [ 3, 234, 23, 78, 356, 98, 67, 3, 34, 23, 94, 94, 90, 9 ];
@@ -27,5 +27,5 @@ console.log('Percentile: ', percentile(testDataSet, .05));
 console.log('Range: ', range(testDataSet));
 console.log('Standard Deviation: ', stdDev(testDataSet));
 console.log('Median Absolute Deviation: ', mad(winsorTest));
-console.log('Winsorized: ', mavWinsorize(winsorTest));//testDataSet));
-console.log('Sorted Winsorized: ', [...mavWinsorize(winsorTest)].sort((a, b) => a - b));
+console.log('Winsorized: ', madWinsorize(winsorTest, 4));//testDataSet));
+console.log('Sorted Winsorized: ', [...madWinsorize(winsorTest, 4)].sort((a, b) => a - b));

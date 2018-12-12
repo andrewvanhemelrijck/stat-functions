@@ -87,23 +87,24 @@ stdDev([ 1, 2, 3 ]); // 0.816496580927726
 mad([ 1, 2, 3 ]); // 1
 ```
 
-### `mavWinsorize(dataset)` ###
+### `madWinsorize(dataset, madF)` ###
 #### Arguments ####
     + dataset ~(Array)~: Array of numbers.
+    + madF ~()~: Median Absolute Deviation Factor.
 #### Returns ####
     + ~(Number)~
 #### Example ####
 ```
-mavWinsorize([ 1, 2, 3 ]); // [1, 2, 3]
+madWinsorize([ 1, 2, 3 ]); // [1, 2, 3]
 ```
 
 ### `percentile(dataset, k)` ###
 #### Arguments ####
     + dataset ~(Array)~: Array of numbers.
+    + k ~(Number)~: Percentile to use.
 #### Returns ####
     + ~(Number)~
 #### Example ####
 ```
 percentile([1, 2, 3], .3); // 1
 ```
-
