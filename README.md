@@ -1,9 +1,8 @@
 # 📈 jStats
----
 A collection of common statistics formulas.
 
-## Usage
 ---
+## Usage
 Import jStats methods into your project.
 ```javascript
 import { sum, mean } from 'jStats';
@@ -15,14 +14,14 @@ sum([ 1, 2, 3 ]); // 6
 percentile([ 1, 2, 3 ], .3); // 1
 ```
 
-## Available Methods
 ---
-## sum(dataset)
-## median(dataset)
-## mean(dataset)
-## mode(dataset)
-## range(dataset)
-## stdDev(dataset)
-## mad(dataset)
-## madWinsorize(dataset, madF)
-## percentile(dataset, k)
+## Available Methods
++ ## sum(dataset)
++ ## median(dataset)
++ ## mean(dataset)
++ ## mode(dataset)
++ ## range(dataset)
++ ## stdDev(dataset)
++ ## mad(dataset)
++ ## madWinsorize(dataset, madF)
++ ## percentile(dataset, k)
