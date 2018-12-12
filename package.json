@@ -1,19 +1,17 @@
 {
   "name": "jStats",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "📈 jStats is a collection of common statistics formulas.",
-  "main": "index.js",
+  "keywords": ["statistics"],
+  "homepage": "https://github.com/pigeontoe/jStats#readme",
+  "main": "jStats.js",
+  "repository": "github:pigeontoe/jStats.git",
   "scripts": {
     "test": "jest --verbose",
     "start": "nodemon ./bin/dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/pigeontoe/jStats.git"
-  },
   "author": "Andrew Van Hemelrijck",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/pigeontoe/jStats#readme",
   "dependencies": {
     "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
