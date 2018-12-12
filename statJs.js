@@ -100,6 +100,11 @@ const madWinsorize = (dataSet, madF) => {
 const percentile = (dataSet, k) => {
   // sort dataSet ascending
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
+
+  if (sortedDataSet.length === 0) return 0;
+  // if (typeof k !== 'number') throw new TypeError('k must be a number');
+  if (k <= 0) return sortedDataSet[0];
+  if (k >= 1) return sortedDataSet[sortedDataSet.length - 1];
   
   // determine index and percentile value
   let i = k * dataSet.length;

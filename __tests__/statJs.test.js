@@ -39,8 +39,8 @@ describe('statJs', () => {
   });
 
   test('.madWinsorize() should return correctly Winsorized data set', () => {
-    expect(statJs.madWinsorize(testDataSet)).toEqual([ 3, 234, 23, 78, 248.5, 98, 67, 3, 34, 23, 94, 94, 90, 9 ], 4);
-    expect(statJs.madWinsorize(winsorTest)).toEqual([ 3, 234, 23, 78, 298, 98, 67, 3, 34, 23, 94, 94, 90, 9, 298, 298, -142 ], 4);
+    expect(statJs.madWinsorize(testDataSet, 4)).toEqual([ 3, 234, 23, 78, 248.5, 98, 67, 3, 34, 23, 94, 94, 90, 9 ]);
+    expect(statJs.madWinsorize(winsorTest, 4)).toEqual([ 3, 234, 23, 78, 298, 98, 67, 3, 34, 23, 94, 94, 90, 9, 298, 298, -142 ]);
   });
 
   test('.percentile() should return correct percentile value', () => {
