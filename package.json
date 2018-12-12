@@ -1,7 +1,7 @@
 {
-  "name": "statjs",
-  "version": "1.0",
-  "description": "📈 statJs is a growing collection of statistics formulas that are readily available and easy to use.",
+  "name": "jStats",
+  "version": "0.9.0",
+  "description": "📈 jStats is a collection of common statistics formulas.",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/pigeontoe/statjs.git"
+    "url": "git+ssh://git@bitbucket.org/pigeontoe/jStats.git"
   },
   "author": "Andrew Van Hemelrijck",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/pigeontoe/statjs#readme",
+  "homepage": "https://bitbucket.org/pigeontoe/jStats#readme",
   "dependencies": {
     "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
