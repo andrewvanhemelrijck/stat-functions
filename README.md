@@ -2,6 +2,13 @@
 A collection of common statistics formulas.
 
 ---
+## Install
+```javascript
+npm i jStats
+yarn add jStats
+```
+
+---
 ## Usage
 Import jStats methods into your project.
 ```javascript
