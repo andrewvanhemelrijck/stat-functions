@@ -1,29 +1,109 @@
-# README #
+# statJs - 1.0 #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+📈 statJs is a growing collection of statistics formulas that are readily available and easy to use.
 
-### What is this repository for? ###
+## Usage ##
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Import StatJs methods into your project.
+```
+import { sum, mean } from 'statJs';
+```
 
-### How do I get set up? ###
+Pass in dataset as an array of numbers (along with other arguments if applicable).
+```
+sum([ 1, 2, 3 ]); // 6
+percentile([ 1, 2, 3 ], .3); // 1
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## Methods ##
 
-### Contribution guidelines ###
+### `sum(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+sum([ 1, 2, 3 ]); // 6
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+### `median(dataset)` ###
+##### Arguments #####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+median([ 1, 2, 3 ]); // 2
+```
 
-### Who do I talk to? ###
+### `mean(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+mean([ 1, 2, 3 ]); // 2
+```
 
-* Repo owner or admin
-* Other community or team contact
+### `mode(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Array)~: Array of modes.
+#### Example ####
+```
+mode([ 1, 2, 3, 3 ]); // [3]
+```
+
+### `range(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Array)~: Array of 2 numbers representing the range ~[min, max]~
+#### Example ####
+```
+mode([ 1, 2, 3 ]); // [1, 3]
+```
+
+### `stdDev(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+stdDev([ 1, 2, 3 ]); // 0.816496580927726
+```
+
+### `mad(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+mad([ 1, 2, 3 ]); // 1
+```
+
+### `mavWinsorize(dataset)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+mavWinsorize([ 1, 2, 3 ]); // [1, 2, 3]
+```
+
+### `percentile(dataset, k)` ###
+#### Arguments ####
+    + dataset ~(Array)~: Array of numbers.
+#### Returns ####
+    + ~(Number)~
+#### Example ####
+```
+percentile([1, 2, 3], .3); // 1
+```
+

@@ -1,7 +1,7 @@
 {
   "name": "statjs",
-  "version": "0.0.1",
-  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "version": "1.0",
+  "description": "📈 statJs is a growing collection of statistics formulas that are readily available and easy to use.",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",

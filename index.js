@@ -1,4 +1,3 @@
-// const statJs = require('./statJs');
 const {
   median,
   mean,
