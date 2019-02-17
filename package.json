@@ -9,11 +9,19 @@
   "main": "stat-functions.js",
   "repository": "github:pigeontoe/stat-functions.git",
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "lint": "eslint stat-functions.js"
   },
   "author": "Andrew Van Hemelrijck",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "jest": "^24.1.0"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.16.0"
   }
 }
