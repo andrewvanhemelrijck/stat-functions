@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`statFunctions .mad() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .mad() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .madWinsorize() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .madWinsorize() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .mean() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .mean() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .median() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .median() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .mode() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .mode() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .percentile() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .percentile() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .range() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .range() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .stdDev() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .stdDev() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
 exports[`statFunctions .sum() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
 
 exports[`statFunctions .sum() should throw error on empty dataset 1`] = `"Data set must contain values."`;

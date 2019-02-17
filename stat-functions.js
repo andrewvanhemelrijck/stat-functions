@@ -6,10 +6,10 @@ const validateDataSet = (dataSet) => {
   if (!hasLength) throw new TypeError('Data set must contain values.');
 
   // check that all inputs are numbers
-  const nan = dataSet.filter(v => Number.isNaN(v)).length > 0;
+  const nan = dataSet.filter(v => Number.isNaN(Number(v))).length > 0;
   if (nan) throw new TypeError('Data set must contain only numbers.');
 
-  return hasLength && nan;
+  return hasLength && !nan;
 };
 
 // /////////////////////////////////////////////////////////////////////
@@ -23,12 +23,17 @@ const sum = (dataSet) => {
 // /////////////////////////////////////////////////////////////////////
 // Mean
 // /////////////////////////////////////////////////////////////////////
-const mean = dataSet => sum(dataSet) / dataSet.length;
+const mean = (dataSet) => {
+  validateDataSet(dataSet);
+  return sum(dataSet) / dataSet.length;
+};
 
 // /////////////////////////////////////////////////////////////////////
 // Median
 // /////////////////////////////////////////////////////////////////////
 const median = (dataSet) => {
+  validateDataSet(dataSet);
+
   const setLen = dataSet.length;
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
 
@@ -40,6 +45,8 @@ const median = (dataSet) => {
 // Mode
 // /////////////////////////////////////////////////////////////////////
 const mode = (dataSet) => {
+  validateDataSet(dataSet);
+
   const counts = [];
   const modes = [];
   let maxIndex = 0;
@@ -64,6 +71,8 @@ const mode = (dataSet) => {
 // Range
 // /////////////////////////////////////////////////////////////////////
 const range = (dataSet) => {
+  validateDataSet(dataSet);
+
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
 
   return [sortedDataSet[0], sortedDataSet[dataSet.length - 1]];
@@ -73,6 +82,8 @@ const range = (dataSet) => {
 // Standard Deviation
 // /////////////////////////////////////////////////////////////////////
 const stdDev = (dataSet) => {
+  validateDataSet(dataSet);
+
   const avg = mean(dataSet);
 
   const squareDiffs = dataSet.map((val) => {
@@ -91,6 +102,8 @@ const stdDev = (dataSet) => {
 // Percentile
 // /////////////////////////////////////////////////////////////////////
 const percentile = (dataSet, k) => {
+  validateDataSet(dataSet);
+
   // sort dataSet ascending
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
 
@@ -112,6 +125,8 @@ const percentile = (dataSet, k) => {
 // Median Absolute Deviation
 // /////////////////////////////////////////////////////////////////////
 const mad = (dataSet) => {
+  validateDataSet(dataSet);
+
   // get median
   const med = median(dataSet);
 
@@ -126,6 +141,8 @@ const mad = (dataSet) => {
 // Winsorize
 // /////////////////////////////////////////////////////////////////////
 const madWinsorize = (dataSet, madF) => {
+  validateDataSet(dataSet);
+
   const med = median(dataSet);
   const dSMad = mad(dataSet);
 
