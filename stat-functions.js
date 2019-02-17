@@ -1,9 +1,14 @@
 // /////////////////////////////////////////////////////////////////////
+// Sum
+// /////////////////////////////////////////////////////////////////////
+const sum = dataSet => dataSet.reduce((a, b) => a + b, 0);
+
+// /////////////////////////////////////////////////////////////////////
 // Median Absolute Deviation
 // /////////////////////////////////////////////////////////////////////
 const mad = (dataSet) => {
   // get median
-  const med = median(dataSet); 
+  const med = median(dataSet);
 
   // get absolute deviations from the median
   const absoluteDeviations = dataSet.map(val => Math.abs(val - med));
@@ -19,7 +24,7 @@ const madWinsorize = (dataSet, madF) => {
   const med = median(dataSet);
   const dSMad = mad(dataSet);
 
-  return dataSet.map(val => {
+  return dataSet.map((val) => {
     if (Math.abs(val - med) > madF * dSMad) {
       if (val > med) return med + (madF * dSMad);
       if (val < med) return med - (madF * dSMad);
@@ -31,31 +36,17 @@ const madWinsorize = (dataSet, madF) => {
 // /////////////////////////////////////////////////////////////////////
 // Mean
 // /////////////////////////////////////////////////////////////////////
-const mean = (dataSet) => {
-  const sum = dataSet.reduce(function(sum, value){
-    return sum + value;
-  }, 0);
-
-  const mean = sum / dataSet.length;
-  return mean;
-};
+const mean = dataSet => sum(dataSet) / dataSet.length;
 
 // /////////////////////////////////////////////////////////////////////
 // Median
 // /////////////////////////////////////////////////////////////////////
 const median = (dataSet) => {
   const setLen = dataSet.length;
-  let med = 0;
-
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
 
-  if (setLen % 2 === 0) {
-    med = (sortedDataSet[(setLen / 2) - 1] + sortedDataSet[setLen / 2]) / 2;
-  } else {
-    med = sortedDataSet[(setLen - 1) / 2];
-  }
-
-  return med;
+  if (setLen % 2 === 0) return (sortedDataSet[(setLen / 2) - 1] + sortedDataSet[setLen / 2]) / 2;
+  return sortedDataSet[(setLen - 1) / 2];
 };
 
 // /////////////////////////////////////////////////////////////////////
@@ -64,10 +55,9 @@ const median = (dataSet) => {
 const mode = (dataSet) => {
   const counts = [];
   const modes = [];
-  let i = 0;
   let maxIndex = 0;
 
-  for (i = 0; i < dataSet.length; i ++) {
+  for (let i = 0; i < dataSet.length; i++) {
     const number = dataSet[i];
     counts[number] = (counts[number] || 0) + 1;
     if (counts[number] > maxIndex) {
@@ -75,10 +65,11 @@ const mode = (dataSet) => {
     }
   }
 
+  if (maxIndex === 1) return [];
+
   counts.forEach((c, i) => {
     if (c === maxIndex) modes.push(i);
   });
-
   return modes;
 };
 
@@ -129,11 +120,6 @@ const stdDev = (dataSet) => {
 
   return output;
 };
-
-// /////////////////////////////////////////////////////////////////////
-// Sum
-// /////////////////////////////////////////////////////////////////////
-const sum = dataSet => dataSet.reduce((a, b) => a + b, 0);
 
 module.exports = {
   mad,

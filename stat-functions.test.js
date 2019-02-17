@@ -5,6 +5,7 @@ const winsorTest = [ 3, 234, 23, 78, 356, 98, 67, 3, 34, 23, 94, 94, 90, 9, 999,
 const medianTest = [ 3, 234, 23, 78, 356, 98, 67, 3, 34, 23, 94, 94, 90, 9, 9 ];
 const modeTest = [ 3, 5, 4, 4, 1, 1, 2, 3 ];
 const modeTest2 = [ 100, 229, 234, 234, 11, 1, 3 ];
+const modeTest3 = [ 100, 229, 234, 11, 1, 3 ];
 const percentileTest = [ 43, 54, 56, 61, 62, 66, 68, 69, 69, 70, 71, 72, 77, 78, 79, 85, 87, 88, 89, 93, 95, 96, 98, 99, 99 ];
 const percentileTest2 = [ 3, 23, 78, 67, 3, 34, 23, 94, 90, 9 ];
 
@@ -31,6 +32,7 @@ describe('statFunctions', () => {
   test('.mode() should return correct mode array', () => {
     expect(statFunctions.mode(modeTest)).toEqual([ 1, 3, 4 ]);
     expect(statFunctions.mode(modeTest2)).toEqual([ 234 ]);
+    expect(statFunctions.mode(modeTest3)).toEqual([]);
   });
 
   test('.percentile() should return correct percentile value', () => {
