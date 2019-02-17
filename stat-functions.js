@@ -6,12 +6,11 @@ const validateDataSet = (dataSet) => {
   if (!hasLength) throw new TypeError('Data set must contain values.');
 
   // check that all inputs are numbers
-  const nan = dataSet.filter(v => isNaN(v)).length > 0;
+  const nan = dataSet.filter(v => Number.isNaN(v)).length > 0;
   if (nan) throw new TypeError('Data set must contain only numbers.');
 
   return hasLength && nan;
-}
-
+};
 
 // /////////////////////////////////////////////////////////////////////
 // Sum
