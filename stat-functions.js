@@ -62,23 +62,22 @@ const median = (dataSet) => {
 // Mode
 // /////////////////////////////////////////////////////////////////////
 const mode = (dataSet) => {
-  let modes = [];
-  let count = [];
-  let i, number, maxIndex = 0;
+  const counts = [];
+  const modes = [];
+  let i = 0;
+  let maxIndex = 0;
 
-  for (i = 0; i < dataSet.length; i += 1) {
-    number = dataSet[i];
-    count[number] = (count[number] || 0) + 1;
-    if (count[number] > maxIndex) {
-      maxIndex = count[number];
+  for (i = 0; i < dataSet.length; i ++) {
+    const number = dataSet[i];
+    counts[number] = (counts[number] || 0) + 1;
+    if (counts[number] > maxIndex) {
+      maxIndex = counts[number];
     }
   }
 
-  for (i in Object.keys(count)) {
-    if (count[i] === maxIndex) {
-      modes.push(Number(i));
-    }
-  }
+  counts.forEach((c, i) => {
+    if (c === maxIndex) modes.push(i);
+  });
 
   return modes;
 };
