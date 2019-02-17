@@ -1,7 +1,25 @@
+// Private Functions
+// Validate Input
+const validateDataSet = (dataSet) => {
+  // check that dataSet has values
+  const hasLength = dataSet.length > 0;
+  if (!hasLength) throw new TypeError('Data set must contain values.');
+
+  // check that all inputs are numbers
+  const nan = dataSet.filter(v => isNaN(v)).length > 0;
+  if (nan) throw new TypeError('Data set must contain only numbers.');
+
+  return hasLength && nan;
+}
+
+
 // /////////////////////////////////////////////////////////////////////
 // Sum
 // /////////////////////////////////////////////////////////////////////
-const sum = dataSet => dataSet.reduce((a, b) => a + b, 0);
+const sum = (dataSet) => {
+  validateDataSet(dataSet);
+  return dataSet.reduce((a, b) => a + b, 0);
+};
 
 // /////////////////////////////////////////////////////////////////////
 // Mean

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`statFunctions .sum() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .sum() should throw error on empty dataset 1`] = `"Data set must contain values."`;

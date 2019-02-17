@@ -9,7 +9,27 @@ const modeTest3 = [ 100, 229, 234, 11, 1, 3 ];
 const percentileTest = [ 43, 54, 56, 61, 62, 66, 68, 69, 69, 70, 71, 72, 77, 78, 79, 85, 87, 88, 89, 93, 95, 96, 98, 99, 99 ];
 const percentileTest2 = [ 3, 23, 78, 67, 3, 34, 23, 94, 90, 9 ];
 
+// validation test sets
+const emptySet = [];
+const nanSet = [ 0, 1, 'nan' ];
+
 describe('statFunctions', () => {
+  // sum
+  test('.sum() should return correct sum', () => {
+    expect(statFunctions.sum(testDataSet)).toBe(1206);
+  });
+  test('.sum() should throw error on empty dataset', () => {
+    const testEmpty = () => statFunctions.sum(emptySet);
+    expect(testEmpty).toThrowError(new TypeError('Data set must contain values.'));
+    expect(testEmpty).toThrowErrorMatchingSnapshot();
+  });
+  test('.sum() should throw error on dataset containing non-numbers', () => {
+    const testNan = () => statFunctions.sum(nanSet);
+    expect(testNan).toThrowError(new TypeError('Data set must contain only numbers.'));
+    expect(testNan).toThrowErrorMatchingSnapshot();
+  });
+
+  // MAD
   test('.mad() should return correct median absolute deviation', () => {
     expect(statFunctions.mad(testDataSet)).toBe(44);
     expect(statFunctions.mad(medianTest)).toBe(44);
@@ -50,7 +70,4 @@ describe('statFunctions', () => {
     expect(statFunctions.stdDev(testDataSet)).toBe(94.81776291004395);
   });
 
-  test('.sum() should return correct sum', () => {
-    expect(statFunctions.sum(testDataSet)).toBe(1206);
-  });
 });
