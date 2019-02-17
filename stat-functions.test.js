@@ -115,14 +115,24 @@ describe('statFunctions', () => {
     expect(statFunctions.percentile(percentileTest2, .1)).toBe(3);
   });
   test('.percentile() should throw error on empty dataset', () => {
-    const testEmpty = () => statFunctions.percentile(emptySet);
+    const testEmpty = () => statFunctions.percentile(emptySet, .9);
     expect(testEmpty).toThrowError(new TypeError('Data set must contain values.'));
     expect(testEmpty).toThrowErrorMatchingSnapshot();
   });
   test('.percentile() should throw error on dataset containing non-numbers', () => {
-    const testNan = () => statFunctions.percentile(nanSet);
+    const testNan = () => statFunctions.percentile(nanSet, .9);
     expect(testNan).toThrowError(new TypeError('Data set must contain only numbers.'));
     expect(testNan).toThrowErrorMatchingSnapshot();
+  });
+  test('.percentile() should throw error on empty k value', () => {
+    const testEmptyK = () => statFunctions.percentile(percentileTest);
+    expect(testEmptyK).toThrowError(new TypeError('You must provide a k value for the percentile function.'));
+    expect(testEmptyK).toThrowErrorMatchingSnapshot();
+  });
+  test('.percentile() should throw error on non-number k value', () => {
+    const testNanK = () => statFunctions.percentile(percentileTest, 'not a number');
+    expect(testNanK).toThrowError(new TypeError('K value must be a number.'));
+    expect(testNanK).toThrowErrorMatchingSnapshot();
   });
 
   // MAD
@@ -147,13 +157,23 @@ describe('statFunctions', () => {
     expect(statFunctions.madWinsorize(winsorTest, 4)).toEqual([ 3, 234, 23, 78, 298, 98, 67, 3, 34, 23, 94, 94, 90, 9, 298, 298, -142 ]);
   });
   test('.madWinsorize() should throw error on empty dataset', () => {
-    const testEmpty = () => statFunctions.madWinsorize(emptySet);
+    const testEmpty = () => statFunctions.madWinsorize(emptySet, 4);
     expect(testEmpty).toThrowError(new TypeError('Data set must contain values.'));
     expect(testEmpty).toThrowErrorMatchingSnapshot();
   });
   test('.madWinsorize() should throw error on dataset containing non-numbers', () => {
-    const testNan = () => statFunctions.madWinsorize(nanSet);
+    const testNan = () => statFunctions.madWinsorize(nanSet, 4);
     expect(testNan).toThrowError(new TypeError('Data set must contain only numbers.'));
     expect(testNan).toThrowErrorMatchingSnapshot();
+  });
+  test('.madWinsorize() should throw error on empty MAD factor value', () => {
+    const testEmptyMadF = () => statFunctions.madWinsorize(winsorTest);
+    expect(testEmptyMadF).toThrowError(new TypeError('You must provide a MAD factor value for the madWinsorize function.'));
+    expect(testEmptyMadF).toThrowErrorMatchingSnapshot();
+  });
+  test('.madWinsorize() should throw error on non-number MAD factor value', () => {
+    const testNanMadF = () => statFunctions.madWinsorize(winsorTest, 'not a number');
+    expect(testNanMadF).toThrowError(new TypeError('MAD factor value must be a number.'));
+    expect(testNanMadF).toThrowErrorMatchingSnapshot();
   });
 });

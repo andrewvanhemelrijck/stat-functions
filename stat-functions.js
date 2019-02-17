@@ -102,6 +102,12 @@ const stdDev = (dataSet) => {
 // Percentile
 // /////////////////////////////////////////////////////////////////////
 const percentile = (dataSet, k) => {
+  // validate k parameter
+  if (typeof k === 'undefined') {
+    throw new TypeError('You must provide a k value for the percentile function.');
+  }
+  if (Number.isNaN(Number(k))) throw new TypeError('K value must be a number.');
+
   validateDataSet(dataSet);
 
   // sort dataSet ascending
@@ -141,6 +147,12 @@ const mad = (dataSet) => {
 // Winsorize
 // /////////////////////////////////////////////////////////////////////
 const madWinsorize = (dataSet, madF) => {
+  // validate madF (MAD factor)
+  if (typeof madF === 'undefined') {
+    throw new TypeError('You must provide a MAD factor value for the madWinsorize function.');
+  }
+  if (Number.isNaN(Number(madF))) throw new TypeError('MAD factor value must be a number.');
+
   validateDataSet(dataSet);
 
   const med = median(dataSet);
