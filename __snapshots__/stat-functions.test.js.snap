@@ -30,6 +30,10 @@ exports[`statFunctions .percentile() should throw error on empty dataset 1`] = `
 
 exports[`statFunctions .percentile() should throw error on empty k value 1`] = `"You must provide a k value for the percentile function."`;
 
+exports[`statFunctions .percentile() should throw error on k value less than 0 or greater than 1 1`] = `"K value must be a decimal value greater than 0 and less than 1."`;
+
+exports[`statFunctions .percentile() should throw error on k value less than 0 or greater than 1 2`] = `"K value must be a decimal value greater than 0 and less than 1."`;
+
 exports[`statFunctions .percentile() should throw error on non-number k value 1`] = `"K value must be a number."`;
 
 exports[`statFunctions .range() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;

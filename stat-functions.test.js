@@ -134,6 +134,15 @@ describe('statFunctions', () => {
     expect(testNanK).toThrowError(new TypeError('K value must be a number.'));
     expect(testNanK).toThrowErrorMatchingSnapshot();
   });
+  test('.percentile() should throw error on k value less than 0 or greater than 1', () => {
+    const testKLessThanZero = () => statFunctions.percentile(percentileTest, -.1);
+    expect(testKLessThanZero).toThrowError(new TypeError('K value must be a decimal value greater than 0 and less than 1.'));
+    expect(testKLessThanZero).toThrowErrorMatchingSnapshot();
+
+    const testKGreaterThanZero = () => statFunctions.percentile(percentileTest, 1.5);
+    expect(testKGreaterThanZero).toThrowError(new TypeError('K value must be a decimal value greater than 0 and less than 1.'));
+    expect(testKGreaterThanZero).toThrowErrorMatchingSnapshot();
+  });
 
   // MAD
   test('.mad() should return correct median absolute deviation', () => {

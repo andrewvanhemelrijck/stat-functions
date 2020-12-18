@@ -107,6 +107,7 @@ const percentile = (dataSet, k) => {
     throw new TypeError('You must provide a k value for the percentile function.');
   }
   if (Number.isNaN(Number(k))) throw new TypeError('K value must be a number.');
+  if (k < 0 || k > 1) throw new TypeError('K value must be a decimal value greater than 0 and less than 1.');
 
   validateDataSet(dataSet);
 
