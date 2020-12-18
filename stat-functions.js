@@ -114,8 +114,8 @@ const percentile = (dataSet, k) => {
   // sort dataSet ascending
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
 
-  if (k <= 0) return sortedDataSet[0];
-  if (k >= 1) return sortedDataSet[sortedDataSet.length - 1];
+  if (k === 0) return sortedDataSet[0];
+  if (k === 1) return sortedDataSet[sortedDataSet.length - 1];
 
   // determine index and percentile value
   const i = k * dataSet.length;
