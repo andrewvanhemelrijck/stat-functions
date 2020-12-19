@@ -127,6 +127,35 @@ const percentile = (dataSet, k) => {
 };
 
 // /////////////////////////////////////////////////////////////////////
+// nTile
+// /////////////////////////////////////////////////////////////////////
+const nTile = (dataSet, q) => {
+  // validate q parameter
+  if (typeof q === 'undefined') {
+    throw new TypeError('You must provide a q value for the nTile function.');
+  }
+  if (Number.isNaN(Number(q))) throw new TypeError('Q value must be a number.');
+  if (q < 0) throw new TypeError('Q value must be greater than 0.');
+  if (!Number.isInteger(q)) throw new TypeError('Q value must be an integer.');
+
+  validateDataSet(dataSet);
+
+  // sort dataSet ascending
+  const sortedDataSet = [...dataSet].sort((a, b) => a - b);
+
+  if (q === 0) return sortedDataSet[0];
+  if (q === 1) return sortedDataSet[sortedDataSet.length - 1];
+
+  const nTileArray = [];
+  const percentileSpan = 1 / q;
+  for (let i = 1; i < q; i++) {
+    nTileArray.push(percentile(sortedDataSet, i * percentileSpan));
+  }
+
+  return nTileArray;
+};
+
+// /////////////////////////////////////////////////////////////////////
 // Median Absolute Deviation
 // /////////////////////////////////////////////////////////////////////
 const mad = (dataSet) => {
@@ -173,6 +202,7 @@ module.exports = {
   median,
   mode,
   percentile,
+  nTile,
   range,
   stdDev,
   sum,

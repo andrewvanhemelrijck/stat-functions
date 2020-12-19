@@ -8,6 +8,7 @@ const modeTest2 = [ 100, 229, 234, 234, 11, 1, 3 ];
 const modeTest3 = [ 100, 229, 234, 11, 1, 3 ];
 const percentileTest = [ 43, 54, 56, 61, 62, 66, 68, 69, 69, 70, 71, 72, 77, 78, 79, 85, 87, 88, 89, 93, 95, 96, 98, 99, 99 ];
 const percentileTest2 = [ 3, 23, 78, 67, 3, 34, 23, 94, 90, 9 ];
+const percentileTest3 = [ 100, 55, 64, 11, 85, 73, 51, 60, 29, 53, 63, 32, 91, 67, 41, 80, 6, 97, 39, 99, 68, 92, 15, 94, 12, 23, 40, 5, 88, 35, 46, 17, 48, 59, 16, 24, 79, 58, 89, 66, 70, 56, 9, 27, 77, 83, 86, 61, 22, 1 ];
 
 // validation test sets
 const emptySet = [];
@@ -142,6 +143,44 @@ describe('statFunctions', () => {
     const testKGreaterThanZero = () => statFunctions.percentile(percentileTest, 1.5);
     expect(testKGreaterThanZero).toThrowError(new TypeError('K value must be a decimal value greater than 0 and less than 1.'));
     expect(testKGreaterThanZero).toThrowErrorMatchingSnapshot();
+  });
+
+  // nTile
+  test('.nTile() should return correct nTile value', () => {
+    expect(statFunctions.nTile([1, 2, 3, 4], 4)).toEqual([1.5, 2.5, 3.5]);
+    expect(statFunctions.nTile(percentileTest, 4)).toEqual([68, 77, 89]);
+    expect(statFunctions.nTile(percentileTest2, 4)).toEqual([9, 28.5, 78]);
+    expect(statFunctions.nTile(percentileTest3, 10)).toEqual([ 11.5, 22.5, 35, 47, 57, 64, 71.5, 84, 91.5 ]);
+  });
+  test('.nTile() should throw error on empty dataset', () => {
+    const testEmpty = () => statFunctions.nTile(emptySet, 4);
+    expect(testEmpty).toThrowError(new TypeError('Data set must contain values.'));
+    expect(testEmpty).toThrowErrorMatchingSnapshot();
+  });
+  test('.nTile() should throw error on dataset containing non-numbers', () => {
+    const testNan = () => statFunctions.nTile(nanSet, 4);
+    expect(testNan).toThrowError(new TypeError('Data set must contain only numbers.'));
+    expect(testNan).toThrowErrorMatchingSnapshot();
+  });
+  test('.nTile() should throw error on empty q value', () => {
+    const testEmptyQ = () => statFunctions.nTile(percentileTest);
+    expect(testEmptyQ).toThrowError(new TypeError('You must provide a q value for the nTile function.'));
+    expect(testEmptyQ).toThrowErrorMatchingSnapshot();
+  });
+  test('.nTile() should throw error on non-number q value', () => {
+    const testNanQ = () => statFunctions.nTile(percentileTest, 'not a number');
+    expect(testNanQ).toThrowError(new TypeError('Q value must be a number.'));
+    expect(testNanQ).toThrowErrorMatchingSnapshot();
+  });
+  test('.nTile() should throw error on q value less than 0', () => {
+    const testQLessThanZero = () => statFunctions.nTile(percentileTest, -1);
+    expect(testQLessThanZero).toThrowError(new TypeError('Q value must be greater than 0.'));
+    expect(testQLessThanZero).toThrowErrorMatchingSnapshot();
+  });
+  test('.nTile() should throw error on non-integer q value', () => {
+    const testNonIntQ = () => statFunctions.nTile(percentileTest, .1);
+    expect(testNonIntQ).toThrowError(new TypeError('Q value must be an integer.'));
+    expect(testNonIntQ).toThrowErrorMatchingSnapshot();
   });
 
   // MAD

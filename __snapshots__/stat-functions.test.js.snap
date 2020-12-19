@@ -24,6 +24,18 @@ exports[`statFunctions .mode() should throw error on dataset containing non-numb
 
 exports[`statFunctions .mode() should throw error on empty dataset 1`] = `"Data set must contain values."`;
 
+exports[`statFunctions .nTile() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
+
+exports[`statFunctions .nTile() should throw error on empty dataset 1`] = `"Data set must contain values."`;
+
+exports[`statFunctions .nTile() should throw error on empty q value 1`] = `"You must provide a q value for the nTile function."`;
+
+exports[`statFunctions .nTile() should throw error on non-integer q value 1`] = `"Q value must be an integer."`;
+
+exports[`statFunctions .nTile() should throw error on non-number q value 1`] = `"Q value must be a number."`;
+
+exports[`statFunctions .nTile() should throw error on q value less than 0 1`] = `"Q value must be greater than 0."`;
+
 exports[`statFunctions .percentile() should throw error on dataset containing non-numbers 1`] = `"Data set must contain only numbers."`;
 
 exports[`statFunctions .percentile() should throw error on empty dataset 1`] = `"Data set must contain values."`;
