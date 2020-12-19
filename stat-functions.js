@@ -143,8 +143,8 @@ const nTile = (dataSet, q) => {
   // sort dataSet ascending
   const sortedDataSet = [...dataSet].sort((a, b) => a - b);
 
-  if (q === 0) return sortedDataSet[0];
-  if (q === 1) return sortedDataSet[sortedDataSet.length - 1];
+  if (q === 0) return [sortedDataSet[0]];
+  if (q === 1) return [sortedDataSet[sortedDataSet.length - 1]];
 
   const nTileArray = [];
   const percentileSpan = 1 / q;
